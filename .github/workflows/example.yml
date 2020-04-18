@@ -11,4 +11,4 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: jsonnet
         with:
-          file: 'text/example.jsonnet'
+          file: 'test/example.jsonnet'
