@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  render_jsonnet_to_stdout:
+    runs-on: ubuntu-latest
+    name: Execute Jsonnet
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Jsonnet
+        uses: ./ # Uses an action in the root directory
+        id: jsonnet
+        with:
+          args: 'test/example.jsonnet > test/output.json'
+      - name: Validate
+        run: diff test/output.json test/example.json

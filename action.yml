@@ -1,10 +1,10 @@
 name: 'jsonnet'
-description: 'Executes jsonnet and writes to the local workspace'
+description: 'Executes jsonnet with provided args'
 inputs:
   args:
     description: |
-      Arguments to pass to Jsonnet. For example, "-m outputDir -S app.jsonnet",
-      or simply "app.jsonnet"
+      Arguments to pass to Jsonnet. For example, "-m outputDir/ -S app.jsonnet",
+      or "app.jsonnet > app.json"
     required: true
 runs:
   using: 'docker'
