@@ -37,6 +37,6 @@ jobs:
         id: jsonnet
         with:
           file: 'test/example.jsonnet'
-          output_dir: test/multi-file-ouput
+          output_dir: test/multi-file-output/
       - name: Validation
-        run: diff test/multi-file-ouput/person1 test/person1
+        run: diff test/multi-file-output/person1 test/person1
