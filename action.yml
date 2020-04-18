@@ -10,6 +10,12 @@ inputs:
       output files. Setting this will add `-m <output_dir>` to the Jsonnet
       invocation
     required: false
+  output_file:
+    description: |
+      Output file for evaluating a Jsonnet file that produces a single
+      output file. Setting this will write the STDOUT from the Jsonnet
+      invocation to <output_file>
+    required: false
   plaintext:
     description: |
       When set to `true`, invokes Jsonnet with the `-S` flag to print the output
@@ -17,8 +23,9 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'bitnami/jsonnet:latest'
-  # args:
-  #   - ${{ inputs.file }}
-  #   - ${{ inputs.textOutput }}
-  #   - ${{ inputs.outputDir }}
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.file }}
+    - ${{ inputs.output_dir }}
+    - ${{ inputs.output_file }}
+    - ${{ inputs.plaintext }}
