@@ -1,16 +1,13 @@
-# action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'jsonnet'
+description: 'Executes jsonnet and writes to the local workspace'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  args:
+    description: |
+      Arguments to pass to Jsonnet. For example, "-m outputDir -S app.jsonnet",
+      or simply "app.jsonnet"
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'bitnami/jsonnet:latest'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.args }}
