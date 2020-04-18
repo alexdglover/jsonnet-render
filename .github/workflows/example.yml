@@ -11,6 +11,4 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: jsonnet
         with:
-          args: '-m ./ test/multi-file-example.jsonnet'
-      # - name: Validate
-      #   run: diff test/output.json test/example.json
+          file: 'text/example.jsonnet'

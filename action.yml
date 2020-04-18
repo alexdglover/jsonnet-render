@@ -1,13 +1,24 @@
 name: 'jsonnet'
 description: 'Executes jsonnet with provided args'
 inputs:
-  args:
-    description: |
-      Arguments to pass to Jsonnet. For example, "-m outputDir/ -S app.jsonnet",
-      or "app.jsonnet > app.json"
+  file:
+    description: Jsonnet file that will be evaluated. Required
     required: true
+  output_dir:
+    description: |
+      Output directory for evaluating a Jsonnet file that produces multiple
+      output files. Setting this will add `-m <output_dir>` to the Jsonnet
+      invocation
+    required: false
+  plaintext:
+    description: |
+      When set to `true`, invokes Jsonnet with the `-S` flag to print the output
+      verbatim rather than encoded as JSON
+    required: false
 runs:
   using: 'docker'
   image: 'bitnami/jsonnet:latest'
-  args:
-    - ${{ inputs.args }}
+  # args:
+  #   - ${{ inputs.file }}
+  #   - ${{ inputs.textOutput }}
+  #   - ${{ inputs.outputDir }}
