@@ -1,4 +1,4 @@
-name: 'jsonnet'
+name: 'jsonnet-render'
 description: 'Executes jsonnet with provided args'
 inputs:
   file:

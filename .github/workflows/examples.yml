@@ -1,9 +1,11 @@
+name: Examples
+
 on: [push]
 
 jobs:
   render_jsonnet_to_stdout:
     runs-on: ubuntu-latest
-    name: Execute Jsonnet, print to STDOUT
+    name: Print rendered result to STDOUT
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -14,7 +16,7 @@ jobs:
           file: 'test/example.jsonnet'
   render_jsonnet_to_single_file:
     runs-on: ubuntu-latest
-    name: Execute Jsonnet and direct STDOUT to file
+    name: Write rendered result to file
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -28,7 +30,7 @@ jobs:
         run: diff test/output.json test/expected-example.json
   render_jsonnet_to_multiple_files:
     runs-on: ubuntu-latest
-    name: Execute Jsonnet, render multiple output files
+    name: Write rendered result to multiple output files
     steps:
       - name: Checkout
         uses: actions/checkout@v2
