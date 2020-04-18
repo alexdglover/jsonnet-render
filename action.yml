@@ -1,5 +1,8 @@
 name: 'jsonnet-render'
 description: 'Executes jsonnet with provided args'
+branding:
+  icon: 'align-justify'
+  color: 'blue'
 inputs:
   file:
     description: Jsonnet file that will be evaluated. Required
