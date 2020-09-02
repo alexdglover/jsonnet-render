@@ -24,6 +24,12 @@ inputs:
       When set to `true`, invokes Jsonnet with the `-S` flag to print the output
       verbatim rather than encoded as JSON
     required: false
+  params:
+    description: |
+      Pass arguments to `jsonnet` that get mapped to `--ext-str` arguments. 
+      `dryrun=true env=prod` becomes `--ext-str dryrun=true --ext-str env=prod`. 
+      Use either of comma, space or semicolon as argument separator.
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -32,3 +38,4 @@ runs:
     - ${{ inputs.output_dir }}
     - ${{ inputs.output_file }}
     - ${{ inputs.plaintext }}
+    - ${{ inputs.params }}

@@ -14,6 +14,7 @@ and combine them with another GitHub action to:
 * `output_file` - when set, writes the STDOUT from Jsonnet invocation to $output-file. OPTIONAL
 * `output_dir` - when set, appends `-m $output_dir` to the Jsonnet invocation to render multiple output files to a single directory. OPTIONAL
 * `plaintext` - when set to any value, Jsonnet is invoked with the `-S` flag to emit plaintext rather than JSON-encoded output.
+* `params` - specify external `--ext-str` arguments. `dryrun=true env=prod` becomes `--ext-str dryrun=true --ext-str env=prod`. Use either of comma, space or semicolon as argument separator. OPTIONAL
 
 ## Output
 
@@ -40,6 +41,7 @@ steps:
     with:
       file: path/to/file.jsonnet
       output_file: output/file.json
+      params: dryrun=true env=prod
 ```
 
 ### Render multiple files in a single directory
@@ -51,4 +53,5 @@ steps:
     with:
       file: path/to/file.jsonnet
       output_dir: output/
+      params: dryrun=true;env=prod
 ```
