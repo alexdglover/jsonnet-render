@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 if [ -z "$INPUT_FILE" ]
 then
   echo "Must specify INPUT_FILE env var"
