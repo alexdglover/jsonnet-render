@@ -27,7 +27,7 @@ This Action has no outputs.
 ```yaml
 steps:
   - id: jsonnet-render
-    uses: alexdglover/jsonnet-render@v1
+    uses: alexdglover/jsonnet-render@v2
     with:
       file: path/to/file.jsonnet
 ```
@@ -37,7 +37,7 @@ steps:
 ```yaml
 steps:
   - id: jsonnet-render
-    uses: alexdglover/jsonnet-render@v1
+    uses: alexdglover/jsonnet-render@v2
     with:
       file: path/to/file.jsonnet
       output_file: output/file.json
@@ -49,7 +49,7 @@ steps:
 ```yaml
 steps:
   - id: jsonnet-render
-    uses: alexdglover/jsonnet-render@v1
+    uses: alexdglover/jsonnet-render@v2
     with:
       file: path/to/file.jsonnet
       output_dir: output/
