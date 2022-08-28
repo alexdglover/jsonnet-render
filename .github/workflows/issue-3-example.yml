@@ -10,12 +10,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: create tmp dir
-        run: mkdir /tmp
+        run: mkdir -p /tmp/
       - name: Jsonnet
         uses: ./
         id: jsonnet
         with:
           file: 'test/example.jsonnet'
-          output_file: /tmp/test/output.json
+          output_file: /tmp/output.json
       - name: Validation
-        run: diff /tmp/test/output.json test/expected-example.json
+        run: diff /tmp/output.json test/expected-example.json
