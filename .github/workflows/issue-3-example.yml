@@ -10,12 +10,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: create tmp dir
-        run: mkdir -p /tmp/
+        run: mkdir -p ${{ github.workspace }}/tmp
       - name: Jsonnet
         uses: ./
         id: jsonnet
         with:
           file: 'test/example.jsonnet'
-          output_file: /tmp/output.json
+          output_file: ${{ github.workspace }}/tmp/output.json
       - name: Validation
-        run: diff /tmp/output.json test/expected-example.json
+        run: diff ${{ github.workspace }}/tmp/output.json test/expected-example.json
