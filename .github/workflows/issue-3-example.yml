@@ -1,0 +1,19 @@
+name: issue-3-example
+
+on: [push]
+
+jobs:
+  render_jsonnet_to_single_file:
+    runs-on: ubuntu-latest
+    name: Write rendered result to file
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Jsonnet
+        uses: ./
+        id: jsonnet
+        with:
+          file: 'test/example.jsonnet'
+          output_file: /tmp/test/output.json
+      - name: Validation
+        run: diff /tmp/test/output.json test/expected-example.json
